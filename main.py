@@ -22,7 +22,7 @@ ADMIN_USERNAME = "EvilxStar"
 PROMO_TEXT = (
     "<b>🚀 Premium Promotion Services</b>\n\n"
     "<b>✨ Skyrocket Your Visibility!</b>\n"
-    "👉 <b>Massive Audience:</b> Access to millions of engaged users.\n"
+    "👉 <b>Massive Audience:</b> Access to millions of engaged users.\n\n"
     "📈 <b>Guaranteed Traffic:</b> Our advanced bots accept over <b>100,000+ users daily!</b>\n\n"
     "<b>📆 Available Plans:</b>\n"
     "• 1,000 Users — <code>2,000 INR</code>\n"
