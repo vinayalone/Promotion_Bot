@@ -7,19 +7,23 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
-# 🔐 SECURITY UPDATE: Load Token from Environment Variable
+# 🔐 SECURITY: Load Token from Environment Variable
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-# Check if token exists (Prevents silent crashes if you forget to set it)
+# Check if token exists
 if not BOT_TOKEN:
-    print("❌ ERROR: No BOT_TOKEN found in Environment Variables!")
+    print("❌ ERROR: No BOT_TOKEN found! Add it to Railway Variables.")
     exit(1)
 
 # --- CONFIGURATION ---
 ADMIN_USERNAME = "EvilxStar"
 
+# Professional Promo Message
 PROMO_TEXT = (
-    "<b>🚀 Premium Promotion & Ads</b>\n\n"
+    "<b>🚀 Premium Promotion Services</b>\n\n"
+    "<b>✨ Skyrocket Your Visibility!</b>\n"
+    "👉 <b>Massive Audience:</b> Access to millions of engaged users.\n"
+    "📈 <b>Guaranteed Traffic:</b> Our advanced bots accept over <b>100,000+ users daily!</b>\n\n"
     "<b>📆 Available Plans:</b>\n"
     "• 1,000 Users — <code>2,000 INR</code>\n"
     "• 2,500 Users — <code>4,000 INR</code>\n"
@@ -40,14 +44,16 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher()
 
-# --- THE /START HANDLER ---
+# --- THE /START COMMAND HANDLER ---
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
     try:
+        # Create the "Contact Admin" button
         keyboard = InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="📨 Contact Admin to Buy", url=f"https://t.me/{ADMIN_USERNAME}")]
         ])
         
+        # Send the message
         await message.answer(text=PROMO_TEXT, reply_markup=keyboard)
         print(f"✅ User {message.from_user.id} viewed the promo menu.")
         
